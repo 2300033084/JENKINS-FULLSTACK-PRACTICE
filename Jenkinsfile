@@ -7,7 +7,6 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('frontend/vite-project') {
-                    // Use 'npm ci' for a clean, reliable install from package-lock.json
                     bat 'npm ci'
                     bat 'npm run build'
                 }
@@ -30,7 +29,8 @@ pipeline {
         // ===== BACKEND BUILD =====
         stage('Build Backend') {
             steps {
-                dir('backend') {
+                // Correct path to the backend Maven project
+                dir('backend/JobPortalS21') { 
                     bat 'mvn clean package'
                 }
             }
@@ -40,13 +40,14 @@ pipeline {
         stage('Deploy Backend to Tomcat') {
             steps {
                 bat '''
-                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\recipe.war" (
-                    del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\recipe.war"
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jobportal.war" (
+                    del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jobportal.war"
                 )
-                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\recipe" (
-                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\recipe"
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jobportal" (
+                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jobportal"
                 )
-                for %%f in (backend\\target\\recipe-*.war) do copy "%%f" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\recipe.war"
+                rem Copy the generated .war file from the correct target folder
+                for %%f in (backend\\JobPortalS21\\target\\*.war) do copy "%%f" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\jobportal.war"
                 '''
             }
         }
@@ -60,9 +61,9 @@ pipeline {
         failure {
             echo 'Pipeline Failed.'
         }
-        // Best practice: Clean the workspace after every build (success or failure)
         always {
             cleanWs()
         }
     }
 }
+
