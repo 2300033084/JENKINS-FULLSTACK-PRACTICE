@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.2",
     "vite": "^5.3.3"
   }
 }
