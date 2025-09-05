@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
   <BrowserRouter>
   <Routes>
-    <Route path='/' element={<Homepage/>}/>
+    <Route path='/recipe-frontend' element={<Dashboard/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
   </Routes>
   </BrowserRouter>
