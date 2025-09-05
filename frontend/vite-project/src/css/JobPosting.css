@@ -1,0 +1,215 @@
+.jpcontainer {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.jpcontainer .header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #f5d7a3;
+    padding-left: 15px;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.jpcontainer .content {
+    width: 100%;
+    height: calc(100% - 85px);
+    overflow: auto;
+    padding: 10px;
+}
+
+.jpcontainer .footer {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background: #f5d7a3;
+    text-align: center;
+}
+
+.jpcontainer .footer button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 12pt;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.jpcontainer .footer button:hover {
+    background: darkgreen;
+}
+
+/* Job Listing Card */
+.result {
+    background: #f3fef2;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #c6e4c6;
+    position: relative;
+}
+
+.result .div1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.result .div1 label {
+    font-size: 14pt;
+}
+
+.result .div1 span {
+    background: red;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 10pt;
+}
+
+.result .div1 img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.result .div2 {
+    font-size: 11pt;
+    color: gray;
+    margin-top: 5px;
+}
+
+.result .div3 {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Delete Button */
+.result .delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 10pt;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.result .delete-btn:hover {
+    background: darkred;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    background: #e8f5e9;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 12pt;
+}
+
+.sidebar ul li:hover {
+    background: #c8e6c9;
+}
+
+/* Popup Styling */
+.popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+.popup .popupwindow {
+    width: 450px;
+    height: auto;
+    position: absolute;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.popup .popupheader {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #3f51b5;
+    color: white;
+    padding-left: 10px;
+    font-size: 14pt;
+}
+
+.popup .popupheader span {
+    float: right;
+    font-size: 18pt;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.popup .popupcontent {
+    padding: 15px;
+}
+
+.popup .popupcontent label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.popup .popupcontent input,
+.popup .popupcontent select,
+.popup .popupcontent textarea {
+    width: 100%;
+    height: 35px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.popup .popupcontent textarea {
+    height: 60px;
+}
+
+.popup .popupcontent button {
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12pt;
+    color: white;
+    background: #ff9800;
+    cursor: pointer;
+}
+
+.popup .popupcontent button:hover {
+    background: #e68900;
+}

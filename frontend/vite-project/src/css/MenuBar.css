@@ -1,0 +1,87 @@
+.menuheader {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #34495e;
+  cursor: pointer;
+  gap: 10px; /* Ensures spacing between text and image */
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Header Section */
+.menuheader {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #34495e;
+  cursor: pointer; /* Improves UX */
+  gap: 10px; /* Adds spacing between text and image */
+}
+
+.menuheader img {
+  width: 24px;  /* Set proper width */
+  height: 24px; /* Set proper height */
+  object-fit: contain; /* Ensures proper scaling */
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+
+
+/* Menu Items */
+.menuitem ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.menuitem li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 5px;
+}
+
+/* Hover Effect */
+.menuitem li:hover {
+  background-color: #34495e;
+  transform: scale(1.02); /* Slight zoom effect */
+}
+
+/* Menu Item Icons */
+.menuitem img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 300px) {
+  .menubar {
+      width: 100%;
+      padding: 10px;
+  }
+  
+  .menuheader {
+      font-size: 18px;
+  }
+  
+  .menuitem li {
+      font-size: 14px;
+      padding: 8px;
+  }
+  
+  .menuitem img {
+      width: 18px;
+      height: 18px;
+  }
+}
