@@ -6,8 +6,9 @@ pipeline {
         // ===== FRONTEND BUILD =====
         stage('Build Frontend') {
             steps {
-                dir('frontend/vite-project') {   // frontend folder with package.json & node_modules
-                    bat 'npm install'
+                dir('frontend/vite-project') {
+                    // Use 'npm ci' for a clean, reliable install from package-lock.json
+                    bat 'npm ci'
                     bat 'npm run build'
                 }
             }
@@ -29,7 +30,7 @@ pipeline {
         // ===== BACKEND BUILD =====
         stage('Build Backend') {
             steps {
-                dir('backend') {   // backend folder
+                dir('backend') {
                     bat 'mvn clean package'
                 }
             }
@@ -58,6 +59,10 @@ pipeline {
         }
         failure {
             echo 'Pipeline Failed.'
+        }
+        // Best practice: Clean the workspace after every build (success or failure)
+        always {
+            cleanWs()
         }
     }
 }
