@@ -17,12 +17,14 @@ export default class Dashboard extends Component {
   }
   componentDidMount()
   {
+    // Removing the session check to bypass sign-in
     let csr = getSession("csrid");
-    //alert(csr);
-    if(csr === "")
-      this.logout();
-    let data = JSON.stringify({csrid : csr});
-    callApi("POST", BASEURL + "users/getfullname", data, this.showFullname);
+    if(csr === "") {
+        this.setState({ fullname: "Admin" }); // Hardcode "Admin" name
+    } else {
+        let data = JSON.stringify({csrid : csr});
+        callApi("POST", BASEURL + "users/getfullname", data, this.showFullname);
+    }
   }
   showFullname(response)
   {
@@ -54,7 +56,7 @@ export default class Dashboard extends Component {
           <MenuBar onMenuClick ={this.loadComponent} />
         </div>
         <div className='outlet'>{activeComponent}</div>
-        
+
       </div>
     )
   }

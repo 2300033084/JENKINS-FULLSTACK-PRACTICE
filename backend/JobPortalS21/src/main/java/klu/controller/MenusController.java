@@ -25,7 +25,8 @@ public class MenusController {
 	  
 	  @PostMapping("/getmenusbyrole")
 	  public String getMenusByRole(@RequestBody Map<String, String> data) {
-	    return M.getMenusByRole(data.get("csrid"));
+	    //return M.getMenusByRole(data.get("csrid"));
+		  return M.getMenus();
 	  }	
 	}
 
