@@ -1,5 +1,6 @@
 // Update this line in api.js
-export const BASEURL = "http://localhost:2030/jobportal/";
+// Update this line in api.js
+export const BASEURL = "/jobportal/";
 //CallApi
 export function callApi(reqmethod, url, data, responseHandler){
     var option;
